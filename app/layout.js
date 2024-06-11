@@ -2,7 +2,7 @@ import { Roboto } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./globals.css";
 
-import Nav from "@/components/Nav";
+import Nav from "../components/Nav";
 
 const roboto = Roboto({
   weight: '400',
