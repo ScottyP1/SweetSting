@@ -1,3 +1,5 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 import { Roboto } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./globals.css";
@@ -23,6 +25,7 @@ export default function RootLayout({ children }) {
       <body className={roboto.className}>
         <Nav />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );

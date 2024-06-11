@@ -1,0 +1,24 @@
+Home Page: 
+
+    x-overflow-hidden
+    Text not centered
+
+About Page: 
+
+    height needs change too 100vh
+
+Services Page:
+
+    Card animations on-click for mobile disable.
+    Add skeleton/loader
+
+
+Contact Page
+    Add more info
+    X-overflow-hidden 
+    Reposition form
+    social icons into links
+
+Whole app:
+
+    Disable WEbsite orinitation on screen turn(mobile)
