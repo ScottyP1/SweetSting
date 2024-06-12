@@ -40,3 +40,4 @@ export default function Card({ title, details, img, classes, healTime }) {
         </>
     );
 }
+

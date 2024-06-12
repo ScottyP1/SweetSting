@@ -2,21 +2,33 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
+import MessageOverlay from './MessageOverlay'; // Assuming you have a MessageOverlay component
 
 export default function ContactForm() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [disabled, setDisabled] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
     const [alertInfo, setAlertInfo] = useState({
-        display: false,
         message: '',
         type: '',
     });
 
+    // Function to prevent window scroll
+    const preventScroll = (event) => {
+        event.preventDefault();
+        const element = document.getElementById(event.target.id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    };
+
     const toggleAlert = (message, type) => {
-        setAlertInfo({ display: true, message, type });
+        setAlertInfo({ message, type });
+        setShowAlert(true);
 
         setTimeout(() => {
-            setAlertInfo({ display: false, message: '', type: '' });
+            setShowAlert(false);
+            setAlertInfo({ message: '', type: '' });
         }, 5000);
     };
 
@@ -39,7 +51,7 @@ export default function ContactForm() {
                 'r0066Wy1OPF7yKf5W'
             );
 
-            toggleAlert('Message Sent, Well get back to you soon.', 'success');
+            toggleAlert('Message Sent, We\'ll get back to you soon.', 'success');
         } catch (e) {
             console.error(e);
             toggleAlert('Uh oh. Something went wrong.', 'danger');
@@ -47,6 +59,11 @@ export default function ContactForm() {
             setDisabled(false);
             reset();
         }
+    };
+
+    const closeAlert = () => {
+        setShowAlert(false);
+        setAlertInfo({ message: '', type: '' });
     };
 
     return (
@@ -58,9 +75,10 @@ export default function ContactForm() {
                         <input
                             id="name"
                             type="text"
-                            className="form-control text-white "
+                            className="form-control text-white"
                             style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
                             {...register('name', { required: 'Name is required' })}
+                            onFocus={preventScroll} // Prevent window scroll on focus
                         />
                         {errors.name && <span className="text-danger">{errors.name.message}</span>}
                     </div>
@@ -70,9 +88,10 @@ export default function ContactForm() {
                         <input
                             id="email"
                             type="email"
-                            className="form-control text-white "
+                            className="form-control text-white"
                             style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
                             {...register('email', { required: 'Email is required' })}
+                            onFocus={preventScroll} // Prevent window scroll on focus
                         />
                         {errors.email && <span className="text-danger">{errors.email.message}</span>}
                     </div>
@@ -85,6 +104,7 @@ export default function ContactForm() {
                             className="form-control text-white"
                             style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
                             {...register('subject', { required: 'Subject is required' })}
+                            onFocus={preventScroll} // Prevent window scroll on focus
                         />
                         {errors.subject && <span className="text-danger">{errors.subject.message}</span>}
                     </div>
@@ -97,26 +117,23 @@ export default function ContactForm() {
                             rows="4"
                             style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
                             {...register('message', { required: 'Message is required' })}
+                            onFocus={preventScroll} // Prevent window scroll on focus
                         ></textarea>
                         {errors.message && <span className="text-danger">{errors.message.message}</span>}
                     </div>
+
                     <div className="d-grid gap-2">
                         <button type="submit" className="bg-[#CDF5EC] hover:bg-[#CDF5EC]/[.7] text-black p-2 rounded-lg " disabled={disabled}>Submit</button>
                     </div>
-                </form>
 
-                {alertInfo.display && (
-                    <div className={`alert alert-${alertInfo.type} alert-dismissible mt-5`} role="alert">
-                        {alertInfo.message}
-                        <button
-                            type="button"
-                            className="btn-close "
-                            data-bs-dismiss="alert"
-                            aria-label="Close"
-                            onClick={() => setAlertInfo({ display: false, message: '', type: '' })}
-                        ></button>
-                    </div>
-                )}
+                    {showAlert && (
+                        <MessageOverlay
+                            message={alertInfo.message}
+                            type={alertInfo.type}
+                            onClose={closeAlert}
+                        />
+                    )}
+                </form>
             </div>
         </div>
     );
