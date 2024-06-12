@@ -50,7 +50,7 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="flex justify-center items-center mt-12 lg:mt-30 xl:mt-30">
+        <div className="flex justify-center items-center mt-1 lg:mt-30 xl:mt-30">
             <div className="container border-2 border-[#CDF5EC] bg-[#CDF5EC]/[.3] rounded-lg p-6 w-80 xl:w-1/2 text-white">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-1">
@@ -70,7 +70,7 @@ export default function ContactForm() {
                         <input
                             id="email"
                             type="email"
-                            className="form-control "
+                            className="form-control text-white "
                             style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
                             {...register('email', { required: 'Email is required' })}
                         />
@@ -82,7 +82,7 @@ export default function ContactForm() {
                         <input
                             id="subject"
                             type="text"
-                            className="form-control "
+                            className="form-control text-white"
                             style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
                             {...register('subject', { required: 'Subject is required' })}
                         />
@@ -93,7 +93,7 @@ export default function ContactForm() {
                         <label htmlFor="message" className="form-label">Message</label>
                         <textarea
                             id="message"
-                            className="form-control "
+                            className="form-control text-white"
                             rows="4"
                             style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
                             {...register('message', { required: 'Message is required' })}

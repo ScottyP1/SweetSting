@@ -1,5 +1,6 @@
 import PiercingList from "@/components/PiercingList";
 import Label from "@/components/Label";
+import Footer from "@/components/Footer";
 
 export default function Pricing() {
     return (
@@ -22,7 +23,7 @@ export default function Pricing() {
                 <Label title="InHome" />
             </div>
             <div className="mt-12 flex flex-wrap gap-4 justify-center">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 ">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-2">
                     <PiercingList />
                 </div>
             </div>

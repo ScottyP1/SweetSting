@@ -1,16 +1,11 @@
 Home Page: 
 
     x-overflow-hidden
-    Text not centered
+    max-height
 
 About Page: 
 
-    height needs change too 100vh
-
 Services Page:
-
-    Card animations on-click for mobile disable.
-    Add skeleton/loader
 
 
 Contact Page

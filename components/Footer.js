@@ -13,15 +13,16 @@ export default function Footer() {
     }, []);
 
     return (
-        <div className="fixed bottom-0 left-0 w-full bg-[#CDF5EC]/[.6] p-2 lg:p-4 flex justify-center items-center flex-col">
-            <div className="flex items-center space-x-4 sm:mb-0">
+        <div className="fixed bottom-0 left-0 w-full bg-[#CDF5EC]/[.6] lg:p-4 flex justify-center items-center flex-col">
+            {/* <div className="flex items-center space-x-4 sm:mb-0">
                 <FaGoogle size={30} />
                 <FaFacebook size={30} />
-            </div>
+            </div> */}
             <div className="flex items-center mt-2">
                 <BsTelephone />
                 <a className="ml-1" href="tel:301-997-3385">(301)997-3385</a>
             </div>
+
             <div className="flex items-center">
                 <FaRegCopyright />
                 <span className="ml-1">{currentYear} SweetStingPiercing</span>
