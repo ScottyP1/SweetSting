@@ -1,14 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../public/logo.png';
-import src from '../public/honeyCombVid.mp4';
 
 export default function Home() {
   return (
     <div className='overflow-hidden '>
       {/* Video Background */}
       <video
-        src={require(src)}
+        src={require('/honeyCombVid.mp4')}
         autoPlay
         loop
         muted
