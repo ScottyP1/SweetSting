@@ -7,7 +7,7 @@ export default function Home() {
     <div className='overflow-hidden '>
       {/* Video Background */}
       <video
-        src={require('@/public/honeyCombVid.mp4')}
+        src={require('../public/honeyCombVid.mp4')}
         autoPlay
         loop
         muted
