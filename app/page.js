@@ -6,12 +6,8 @@ export default function Home() {
   return (
     <div className='overflow-hidden '>
       {/* Video Background */}
-      <video
-        src={require('../public/honeyCombVid.mp4')}
-        autoPlay
-        loop
-        muted
-        className="absolute inset-0 w-full h-full object-cover z-0 overflow-hidden">
+      <video autoPlay loop muted className="absolute inset-0 w-full h-full object-cover z-0">
+        <source src="/honeyCombVid.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
