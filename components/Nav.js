@@ -1,5 +1,4 @@
 'use client'
-
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -27,17 +26,26 @@ export default function Nav() {
     }, [sidebarOpen]);
 
     const toggleSidebar = () => {
+        // Close sidebar and video background when sidebar toggles
         setSidebarOpen(!sidebarOpen);
+        closeVideoBackground();
     };
 
     const closeSidebar = () => {
         setSidebarOpen(false);
     };
 
+    const closeVideoBackground = () => {
+        const video = document.getElementById('video-background');
+        if (video) {
+            video.style.display = 'none';  // Hide video
+        }
+    };
+
     return (
         <div className='sticky top-0 z-50'>
             {/* Navbar */}
-            <div className=" bg-black/60 flex items-center justify-between px-4 h-22">
+            <div className="bg-black/60 flex items-center justify-between px-4 h-22">
                 <div className="lg:hidden flex items-center justify-center w-full">
                     <Link href='/'>
                         <div className="cursor-pointer ms-9 p-2">
@@ -45,7 +53,7 @@ export default function Nav() {
                         </div>
                     </Link>
                 </div>
-                <div className="hidden lg:flex items-center ">
+                <div className="hidden lg:flex items-center">
                     <Link href='/'>
                         <div className="cursor-pointer">
                             <Image src={Logo} width={55} alt='logo' />
@@ -67,11 +75,11 @@ export default function Nav() {
                     <NavItem path={path} href="/afterCare" text="After Care" closeSidebar={closeSidebar} />
                     <NavItem path={path} href="/contact" text="Contact" closeSidebar={closeSidebar} />
                 </ul>
-            </div >
+            </div>
 
             {/* Sidebar */}
-            < div className={`fixed top-0 right-0 h-full w-32 bg-black/[.6] text-white transform ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform lg:hidden z-50`
-            }
+            <div
+                className={`fixed top-0 right-0 h-full w-32 bg-black/[.6] text-white transform ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform lg:hidden z-50`}
                 ref={node => {
                     if (node) {
                         node.addEventListener("mousedown", (e) => e.stopPropagation());
@@ -90,8 +98,8 @@ export default function Nav() {
                     <NavItem path={path} href="/afterCare" text="After Care" closeSidebar={closeSidebar} />
                     <NavItem path={path} href="/contact" text="Contact" closeSidebar={closeSidebar} />
                 </ul>
-            </div >
-        </div >
+            </div>
+        </div>
     );
 }
 

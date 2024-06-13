@@ -2,7 +2,7 @@ import AfterCareDetails from "@/components/AfterCareDetails";
 
 export default function AfterCare() {
     return (
-        <main className="relative contact">
+        <main className="relative">
             <div className="text-white xl:w-2/3 mx-auto mt-20">
                 <h1 className="text-center text-4xl lg:text-5xl tracking-[15px]">After Care</h1>
                 <div className="m-4">
