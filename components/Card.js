@@ -8,10 +8,16 @@ export default function Card({ title, details, img, classes, healTime }) {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
+        const loadingState = sessionStorage.getItem('cardLoading');
+        if (loadingState === 'false') {
             setIsLoading(false);
-        }, 2000);
-        return () => clearTimeout(timer); // Clear timeout on component unmount
+        } else {
+            const timer = setTimeout(() => {
+                setIsLoading(false);
+                sessionStorage.setItem('cardLoading', 'false');
+            }, 1000);
+            return () => clearTimeout(timer); // Clear timeout on component unmount
+        }
     }, []);
 
     return (
@@ -21,8 +27,8 @@ export default function Card({ title, details, img, classes, healTime }) {
                     <ShimmerLoader />
                 </div>
             ) : (
-                <div className="relative border-2 rounded-lg overflow-hidden card w-[200px] lg:w-80 h-52" onClick={() => setShowDetails(!showDetails)}>
-                    <Image src={img} alt={title} layout="fill" objectFit="cover" className={`absolute inset-0 ${showDetails && 'opacity-40'}`} />
+                <div className="relative border-2 rounded-lg overflow-hidden card w-[200px] xl:w-80 h-52" onClick={() => setShowDetails(!showDetails)}>
+                    <Image src={img} alt={title} fill style={{ objectFit: 'cover' }} className={`absolute inset-0 ${showDetails && 'opacity-40'}`} />
                     {showDetails ? (
                         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white bg-black bg-opacity-60 p-2 lg:p-4">
                             <p className="text-sm lg:text-md">{healTime}</p>
@@ -40,4 +46,3 @@ export default function Card({ title, details, img, classes, healTime }) {
         </>
     );
 }
-
