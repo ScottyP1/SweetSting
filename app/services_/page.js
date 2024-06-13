@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 export default function Pricing() {
     return (
         <main className="flex flex-col items-center justify-center min-h-screen">
-            <span className="text-white text-3xl text-center tracking-[10px]">
+            <span className="text-white text-4xl lg:text-5xl text-center tracking-[10px]">
                 {/* tw lines  */}
                 Any Event <br />Any Piercing
             </span>

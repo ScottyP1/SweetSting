@@ -6,7 +6,7 @@ export default function About() {
     return (
         <main className="relative contact">
             <div className="container mx-auto lg:px-0">
-                <h1 className='text-white text-2xl text-center mb-8 mt-24 tracking-[14px]'>ABOUT US</h1>
+                <h1 className='text-white text-4xl lg:text-5xl text-center mb-8 mt-20 tracking-[14px]'>About Us</h1>
                 <div className="md:col-span-2 lg:w-4/5 mx-auto text-lg md:text-xl tracking-wide text-white lg:mt-12">
                     <p>
                         Sweet Sting Piercings can guarantee a clean, safe piercing experience every time. Our piercers are trained in San Diego, CA and have a passion to help others express themselves through piercings. All piercings are done with surgical steel from Shining Light Piercings in San Diego. We take the worry out of the equation so you can put your energy into healing your new piercings! If you want to place an order before your piercing event we ask you contact 3 weeks in advance. If you are okay with silver surgical steel for the initial piercing then you do not need to book that far in advance. We hope to meet you soon and provide piercings for your next event, or in your house for your comfort.

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import Logo from '../public/logo.png';
+import Icon from '../public/icon.png';
 
 export default function Nav() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -39,8 +40,8 @@ export default function Nav() {
             <div className=" bg-black/60 flex items-center justify-between px-4 h-22">
                 <div className="lg:hidden flex items-center justify-center w-full">
                     <Link href='/'>
-                        <div className="cursor-pointer ms-9">
-                            <Image src={Logo} width={55} alt='logo' />
+                        <div className="cursor-pointer ms-9 p-2">
+                            <Image src={Icon} width={40} alt='logo' className='rounded-full' />
                         </div>
                     </Link>
                 </div>
@@ -63,6 +64,7 @@ export default function Nav() {
                     <NavItem path={path} href="/" text="Home" closeSidebar={closeSidebar} />
                     <NavItem path={path} href="/about" text="About" closeSidebar={closeSidebar} />
                     <NavItem path={path} href="/services_" text="Services" closeSidebar={closeSidebar} />
+                    <NavItem path={path} href="/afterCare" text="After Care" closeSidebar={closeSidebar} />
                     <NavItem path={path} href="/contact" text="Contact" closeSidebar={closeSidebar} />
                 </ul>
             </div >
@@ -81,10 +83,11 @@ export default function Nav() {
                         X
                     </button>
                 </div>
-                <ul className="flex flex-col items-start p-4">
+                <ul className="flex flex-col items-start p-2 mt-4">
                     <NavItem path={path} href="/" text="Home" closeSidebar={closeSidebar} />
                     <NavItem path={path} href="/about" text="About" closeSidebar={closeSidebar} />
                     <NavItem path={path} href="/services_" text="Services" closeSidebar={closeSidebar} />
+                    <NavItem path={path} href="/afterCare" text="After Care" closeSidebar={closeSidebar} />
                     <NavItem path={path} href="/contact" text="Contact" closeSidebar={closeSidebar} />
                 </ul>
             </div >
